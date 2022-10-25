@@ -18,6 +18,16 @@ public class StudentRestController {
     @Autowired
     StudentRepository studentRepository;
 
+    @GetMapping("/test")
+    public Student kurt() {
+        Student std = new Student();
+        std.setBorn(LocalDate.now());
+        std.setBornTime(LocalTime.now());
+        std.setName("test");
+        return std;
+    }
+
+
     @GetMapping("/students")
     public List<Student> students() {
         List<Student> lst = studentRepository.findAll();
